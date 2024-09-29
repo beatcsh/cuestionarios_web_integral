@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Container, Card} from 'react-bootstrap'
+import { Container, Card, Row, Col } from 'react-bootstrap'
 import { useState } from 'react'
 import { FormOne, FormTwo, FormThree, FormFour, FormFive, FormSix, FormSeven, FormEight, FormNine, FormTen } from './components/Forms'
 
@@ -36,19 +36,23 @@ const App = () => {
   const cards = Object.entries(forms).map(([key, form]) => {
     return (
       <>
-        <Card className='w-50 m-3' key={key}>
-          <Card.Body>
-            <p>{key}</p>
-            {form}
-          </Card.Body>
-        </Card>
+        <Col>
+          <Card className='w-100 mt-4 mb-4' key={key}>
+            <Card.Body>
+              <p>{key}</p>
+              {form}
+            </Card.Body>
+          </Card>
+        </Col>
       </>
     )
   })
 
   return (
-    <Container className='m-5'>
-      {cards}
+    <Container>
+      <Row className='justify-content-md-center' lg={2} md={1} xs={1}>
+        {cards}
+      </Row>
     </Container>
   )
 }
